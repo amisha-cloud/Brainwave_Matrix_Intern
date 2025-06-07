@@ -1,0 +1,93 @@
+/* === CONTAINER === */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;    /* Use 100vh instead of 150vh for full viewport height */
+  width: 100vw;         /* Full viewport width */
+  background-color: #141315;
+  color: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 2rem 1rem;
+  box-sizing: border-box; /* ensures padding is included in width/height */
+  overflow-y: auto;        /* allows vertical scrolling if content overflows */
+}
+
+
+/* === BRANDING === */
+.branding {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.site-name {
+  font-size: 3rem;
+  font-weight: 700;
+  color: hsl(39, 100%, 42%);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.tagline {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  color: hsl(210, 4%, 91%);
+}
+
+/* === IMAGE GALLERY === */
+.image-gallery {
+  flex: 1 1 auto;      /* allows it to grow and fill vertical space */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-y: auto;    /* scroll if too tall */
+}
+
+
+/* === IMAGE CARD === */
+.image-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  background-color: #1a1a1a;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  backdrop-filter: blur(3px);
+}
+
+/* === RESPONSIVE NAVIGATION (Optional if you add navbar later) === */
+@media (max-width: 768px) {
+  .image-gallery {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
